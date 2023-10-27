@@ -70,7 +70,7 @@ class CorrelationIdMiddleware:
         if self.transformer:
             id_value = self.transformer(id_value)
 
-        if validation_failed is True:
+        if validation_failed:
             logger.warning(FAILED_VALIDATION_MESSAGE, id_value)
 
         # Update the request headers if needed

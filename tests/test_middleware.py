@@ -83,12 +83,7 @@ async def test_update_request_header(app):
         assert response.json()['correlation_id'] == correlation_id
 
 
-bad_uuids = [
-    'test',
-    'bad-uuid',
-    '1x' * 16,  # len of uuid is 32
-    uuid4().hex[:-1] + 'x',
-]
+bad_uuids = ['test', 'bad-uuid', '1x' * 16, f'{uuid4().hex[:-1]}x']
 
 
 @pytest.mark.parametrize('value', bad_uuids)
